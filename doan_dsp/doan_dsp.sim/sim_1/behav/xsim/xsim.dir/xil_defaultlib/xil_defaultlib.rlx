@@ -1,0 +1,8 @@
+0.7
+2020.2
+Nov 14 2025
+19:37:27
+E:/dsp_doan/doan_dsp/doan_dsp.sim/sim_1/behav/xsim/glbl.v,1756381829,verilog,,,,glbl,,,,,,,,
+E:/dsp_doan/rtl/feedback_fxlms_core.v,1793120348,verilog,,E:/dsp_doan/rtl/lfsr_prbs31.v,,feedback_fxlms_core,,,../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+E:/dsp_doan/rtl/lfsr_prbs31.v,1793113752,verilog,,E:/dsp_doan/tb/tb_feedback_fxlms_core.v,,lfsr_prbs31,,,../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+E:/dsp_doan/tb/tb_feedback_fxlms_core.v,1793120376,verilog,,,,tb_feedback_fxlms_core,,,../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,

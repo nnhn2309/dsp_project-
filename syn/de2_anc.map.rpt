@@ -1,0 +1,1146 @@
+Analysis & Synthesis report for de2_anc
+Fri Oct 30 11:09:05 2026
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. State Machine - |de2_anc_top|feedback_fxlms_core:u_anc|calc_state
+ 11. State Machine - |de2_anc_top|feedback_fxlms_core:u_anc|sys_state
+ 12. State Machine - |de2_anc_top|wm8731_i2c_config:u_i2c|byte_count
+ 13. State Machine - |de2_anc_top|wm8731_i2c_config:u_i2c|state
+ 14. Registers Removed During Synthesis
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Registers Packed Into Inferred Megafunctions
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Source assignments for feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0|shift_taps_b1n:auto_generated|altsyncram_eta1:altsyncram2
+ 20. Parameter Settings for User Entity Instance: feedback_fxlms_core:u_anc
+ 21. Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0
+ 22. Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult3
+ 23. Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult2
+ 24. Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult0
+ 25. Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult4
+ 26. Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult5
+ 27. Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult1
+ 28. altshift_taps Parameter Settings by Entity Instance
+ 29. lpm_mult Parameter Settings by Entity Instance
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Oct 30 11:09:05 2026           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; de2_anc                                         ;
+; Top-level Entity Name              ; de2_anc_top                                     ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 7,960                                           ;
+;     Total combinational functions  ; 6,442                                           ;
+;     Dedicated logic registers      ; 4,364                                           ;
+; Total registers                    ; 4364                                            ;
+; Total pins                         ; 114                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 48                                              ;
+; Embedded Multiplier 9-bit elements ; 20                                              ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; de2_anc_top        ; de2_anc            ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                        ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+; ../rtl/de2_anc_top.v             ; yes             ; User Verilog HDL File        ; E:/dsp_doan/rtl/de2_anc_top.v                                       ;         ;
+; ../rtl/feedback_fxlms_core.v     ; yes             ; User Verilog HDL File        ; E:/dsp_doan/rtl/feedback_fxlms_core.v                               ;         ;
+; ../rtl/i2s_transceiver.v         ; yes             ; User Verilog HDL File        ; E:/dsp_doan/rtl/i2s_transceiver.v                                   ;         ;
+; ../rtl/wm8731_i2c_config.v       ; yes             ; User Verilog HDL File        ; E:/dsp_doan/rtl/wm8731_i2c_config.v                                 ;         ;
+; ../rtl/lfsr_prbs31.v             ; yes             ; User Verilog HDL File        ; E:/dsp_doan/rtl/lfsr_prbs31.v                                       ;         ;
+; ../rtl/hex_decoder.v             ; yes             ; User Verilog HDL File        ; E:/dsp_doan/rtl/hex_decoder.v                                       ;         ;
+; altshift_taps.tdf                ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift_taps.tdf ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc      ;         ;
+; lpm_counter.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_counter.inc   ;         ;
+; lpm_compare.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_compare.inc   ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_constant.inc  ;         ;
+; db/shift_taps_b1n.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/dsp_doan/syn/db/shift_taps_b1n.tdf                               ;         ;
+; db/altsyncram_eta1.tdf           ; yes             ; Auto-Generated Megafunction  ; E:/dsp_doan/syn/db/altsyncram_eta1.tdf                              ;         ;
+; db/cntr_kkf.tdf                  ; yes             ; Auto-Generated Megafunction  ; E:/dsp_doan/syn/db/cntr_kkf.tdf                                     ;         ;
+; db/cmpr_6cc.tdf                  ; yes             ; Auto-Generated Megafunction  ; E:/dsp_doan/syn/db/cmpr_6cc.tdf                                     ;         ;
+; db/cntr_a4h.tdf                  ; yes             ; Auto-Generated Megafunction  ; E:/dsp_doan/syn/db/cntr_a4h.tdf                                     ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf      ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc    ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc   ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/multcore.inc      ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc      ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc      ;         ;
+; db/mult_m1t.tdf                  ; yes             ; Auto-Generated Megafunction  ; E:/dsp_doan/syn/db/mult_m1t.tdf                                     ;         ;
+; db/mult_i1t.tdf                  ; yes             ; Auto-Generated Megafunction  ; E:/dsp_doan/syn/db/mult_i1t.tdf                                     ;         ;
+; db/mult_h1t.tdf                  ; yes             ; Auto-Generated Megafunction  ; E:/dsp_doan/syn/db/mult_h1t.tdf                                     ;         ;
+; db/mult_d1t.tdf                  ; yes             ; Auto-Generated Megafunction  ; E:/dsp_doan/syn/db/mult_d1t.tdf                                     ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 7,960    ;
+;                                             ;          ;
+; Total combinational functions               ; 6442     ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 3417     ;
+;     -- 3 input functions                    ; 670      ;
+;     -- <=2 input functions                  ; 2355     ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 5874     ;
+;     -- arithmetic mode                      ; 568      ;
+;                                             ;          ;
+; Total registers                             ; 4364     ;
+;     -- Dedicated logic registers            ; 4364     ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 114      ;
+; Total memory bits                           ; 48       ;
+; Embedded Multiplier 9-bit elements          ; 20       ;
+; Maximum fan-out node                        ; CLOCK_50 ;
+; Maximum fan-out                             ; 4380     ;
+; Total fan-out                               ; 37716    ;
+; Average fan-out                             ; 3.44     ;
++---------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                     ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                              ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |de2_anc_top                              ; 6442 (128)        ; 4364 (56)    ; 48          ; 20           ; 0       ; 10        ; 114  ; 0            ; |de2_anc_top                                                                                                                     ; work         ;
+;    |feedback_fxlms_core:u_anc|            ; 6158 (5971)       ; 4172 (4167)  ; 48          ; 20           ; 0       ; 10        ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc                                                                                           ; work         ;
+;       |altshift_taps:delay_d_buf_rtl_0|   ; 9 (0)             ; 5 (0)        ; 48          ; 0            ; 0       ; 0         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0                                                           ; work         ;
+;          |shift_taps_b1n:auto_generated|  ; 9 (0)             ; 5 (1)        ; 48          ; 0            ; 0       ; 0         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0|shift_taps_b1n:auto_generated                             ; work         ;
+;             |altsyncram_eta1:altsyncram2| ; 0 (0)             ; 0 (0)        ; 48          ; 0            ; 0       ; 0         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0|shift_taps_b1n:auto_generated|altsyncram_eta1:altsyncram2 ; work         ;
+;             |cntr_a4h:cntr3|              ; 4 (4)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0|shift_taps_b1n:auto_generated|cntr_a4h:cntr3              ; work         ;
+;             |cntr_kkf:cntr1|              ; 5 (5)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0|shift_taps_b1n:auto_generated|cntr_kkf:cntr1              ; work         ;
+;       |lpm_mult:Mult0|                    ; 43 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult0                                                                            ; work         ;
+;          |mult_i1t:auto_generated|        ; 43 (43)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult0|mult_i1t:auto_generated                                                    ; work         ;
+;       |lpm_mult:Mult1|                    ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult1                                                                            ; work         ;
+;          |mult_d1t:auto_generated|        ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult1|mult_d1t:auto_generated                                                    ; work         ;
+;       |lpm_mult:Mult2|                    ; 45 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult2                                                                            ; work         ;
+;          |mult_m1t:auto_generated|        ; 45 (45)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult2|mult_m1t:auto_generated                                                    ; work         ;
+;       |lpm_mult:Mult3|                    ; 45 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult3                                                                            ; work         ;
+;          |mult_m1t:auto_generated|        ; 45 (45)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult3|mult_m1t:auto_generated                                                    ; work         ;
+;       |lpm_mult:Mult4|                    ; 45 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult4                                                                            ; work         ;
+;          |mult_m1t:auto_generated|        ; 45 (45)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult4|mult_m1t:auto_generated                                                    ; work         ;
+;       |lpm_mult:Mult5|                    ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult5                                                                            ; work         ;
+;          |mult_h1t:auto_generated|        ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |de2_anc_top|feedback_fxlms_core:u_anc|lpm_mult:Mult5|mult_h1t:auto_generated                                                    ; work         ;
+;    |hex_decoder:u_hex|                    ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |de2_anc_top|hex_decoder:u_hex                                                                                                   ; work         ;
+;    |i2s_transceiver:u_i2s|                ; 31 (31)           ; 63 (63)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |de2_anc_top|i2s_transceiver:u_i2s                                                                                               ; work         ;
+;    |lfsr_prbs31:u_lfsr|                   ; 25 (25)           ; 31 (31)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |de2_anc_top|lfsr_prbs31:u_lfsr                                                                                                  ; work         ;
+;    |wm8731_i2c_config:u_i2c|              ; 89 (89)           ; 42 (42)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |de2_anc_top|wm8731_i2c_config:u_i2c                                                                                             ; work         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                   ;
++--------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                           ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++--------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0|shift_taps_b1n:auto_generated|altsyncram_eta1:altsyncram2|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 3            ; 16           ; 3            ; 16           ; 48   ; None ;
++--------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 10          ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 20          ;
+; Signed Embedded Multipliers           ; 6           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 4           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |de2_anc_top|feedback_fxlms_core:u_anc|calc_state                                                                                                                                                                                   ;
++-------------------------+----------------------+------------------------+-----------------------+-------------------------+------------------------+-------------------------+------------------------+----------------------+----------------------+
+; Name                    ; calc_state.CALC_W_UP ; calc_state.CALC_XF_FIR ; calc_state.CALC_Y_FIR ; calc_state.CALC_SYNTH_X ; calc_state.CALC_YF_FIR ; calc_state.CALC_SHAT_UP ; calc_state.CALC_YS_FIR ; calc_state.CALC_IDLE ; calc_state.CALC_DONE ;
++-------------------------+----------------------+------------------------+-----------------------+-------------------------+------------------------+-------------------------+------------------------+----------------------+----------------------+
+; calc_state.CALC_IDLE    ; 0                    ; 0                      ; 0                     ; 0                       ; 0                      ; 0                       ; 0                      ; 0                    ; 0                    ;
+; calc_state.CALC_YS_FIR  ; 0                    ; 0                      ; 0                     ; 0                       ; 0                      ; 0                       ; 1                      ; 1                    ; 0                    ;
+; calc_state.CALC_SHAT_UP ; 0                    ; 0                      ; 0                     ; 0                       ; 0                      ; 1                       ; 0                      ; 1                    ; 0                    ;
+; calc_state.CALC_YF_FIR  ; 0                    ; 0                      ; 0                     ; 0                       ; 1                      ; 0                       ; 0                      ; 1                    ; 0                    ;
+; calc_state.CALC_SYNTH_X ; 0                    ; 0                      ; 0                     ; 1                       ; 0                      ; 0                       ; 0                      ; 1                    ; 0                    ;
+; calc_state.CALC_Y_FIR   ; 0                    ; 0                      ; 1                     ; 0                       ; 0                      ; 0                       ; 0                      ; 1                    ; 0                    ;
+; calc_state.CALC_XF_FIR  ; 0                    ; 1                      ; 0                     ; 0                       ; 0                      ; 0                       ; 0                      ; 1                    ; 0                    ;
+; calc_state.CALC_W_UP    ; 1                    ; 0                      ; 0                     ; 0                       ; 0                      ; 0                       ; 0                      ; 1                    ; 0                    ;
+; calc_state.CALC_DONE    ; 0                    ; 0                      ; 0                     ; 0                       ; 0                      ; 0                       ; 0                      ; 1                    ; 1                    ;
++-------------------------+----------------------+------------------------+-----------------------+-------------------------+------------------------+-------------------------+------------------------+----------------------+----------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |de2_anc_top|feedback_fxlms_core:u_anc|sys_state                                                                                              ;
++----------------------------+-------------------------+----------------------------+---------------------------+----------------------+------------------------+
+; Name                       ; sys_state.STATE_ANC_RUN ; sys_state.STATE_CALIB_DONE ; sys_state.STATE_CALIB_RUN ; sys_state.STATE_IDLE ; sys_state.STATE_BYPASS ;
++----------------------------+-------------------------+----------------------------+---------------------------+----------------------+------------------------+
+; sys_state.STATE_IDLE       ; 0                       ; 0                          ; 0                         ; 0                    ; 0                      ;
+; sys_state.STATE_CALIB_RUN  ; 0                       ; 0                          ; 1                         ; 1                    ; 0                      ;
+; sys_state.STATE_CALIB_DONE ; 0                       ; 1                          ; 0                         ; 1                    ; 0                      ;
+; sys_state.STATE_ANC_RUN    ; 1                       ; 0                          ; 0                         ; 1                    ; 0                      ;
+; sys_state.STATE_BYPASS     ; 0                       ; 0                          ; 0                         ; 1                    ; 1                      ;
++----------------------------+-------------------------+----------------------------+---------------------------+----------------------+------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------+
+; State Machine - |de2_anc_top|wm8731_i2c_config:u_i2c|byte_count ;
++---------------+---------------+---------------+-----------------+
+; Name          ; byte_count.00 ; byte_count.10 ; byte_count.01   ;
++---------------+---------------+---------------+-----------------+
+; byte_count.00 ; 0             ; 0             ; 0               ;
+; byte_count.01 ; 1             ; 0             ; 1               ;
+; byte_count.10 ; 1             ; 1             ; 0               ;
++---------------+---------------+---------------+-----------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |de2_anc_top|wm8731_i2c_config:u_i2c|state                                                                                       ;
++--------------------+-------------------+--------------------+---------------+--------------+--------------------+----------------+---------------+
+; Name               ; state.ST_FINISHED ; state.ST_WAIT_NEXT ; state.ST_STOP ; state.ST_ACK ; state.ST_SEND_BYTE ; state.ST_START ; state.ST_IDLE ;
++--------------------+-------------------+--------------------+---------------+--------------+--------------------+----------------+---------------+
+; state.ST_IDLE      ; 0                 ; 0                  ; 0             ; 0            ; 0                  ; 0              ; 0             ;
+; state.ST_START     ; 0                 ; 0                  ; 0             ; 0            ; 0                  ; 1              ; 1             ;
+; state.ST_SEND_BYTE ; 0                 ; 0                  ; 0             ; 0            ; 1                  ; 0              ; 1             ;
+; state.ST_ACK       ; 0                 ; 0                  ; 0             ; 1            ; 0                  ; 0              ; 1             ;
+; state.ST_STOP      ; 0                 ; 0                  ; 1             ; 0            ; 0                  ; 0              ; 1             ;
+; state.ST_WAIT_NEXT ; 0                 ; 1                  ; 0             ; 0            ; 0                  ; 0              ; 1             ;
+; state.ST_FINISHED  ; 1                 ; 0                  ; 0             ; 0            ; 0                  ; 0              ; 1             ;
++--------------------+-------------------+--------------------+---------------+--------------+--------------------+----------------+---------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                   ;
++------------------------------------------------+-----------------------------------------------------+
+; Register name                                  ; Reason for Removal                                  ;
++------------------------------------------------+-----------------------------------------------------+
+; feedback_fxlms_core:u_anc|v_buf[0][14]         ; Merged with feedback_fxlms_core:u_anc|v_buf[0][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[0][15]         ; Merged with feedback_fxlms_core:u_anc|v_buf[0][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[1][14]         ; Merged with feedback_fxlms_core:u_anc|v_buf[1][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[1][15]         ; Merged with feedback_fxlms_core:u_anc|v_buf[1][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[2][14]         ; Merged with feedback_fxlms_core:u_anc|v_buf[2][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[2][15]         ; Merged with feedback_fxlms_core:u_anc|v_buf[2][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[3][14]         ; Merged with feedback_fxlms_core:u_anc|v_buf[3][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[3][15]         ; Merged with feedback_fxlms_core:u_anc|v_buf[3][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[4][14]         ; Merged with feedback_fxlms_core:u_anc|v_buf[4][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[4][15]         ; Merged with feedback_fxlms_core:u_anc|v_buf[4][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[5][14]         ; Merged with feedback_fxlms_core:u_anc|v_buf[5][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[5][15]         ; Merged with feedback_fxlms_core:u_anc|v_buf[5][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[6][14]         ; Merged with feedback_fxlms_core:u_anc|v_buf[6][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[6][15]         ; Merged with feedback_fxlms_core:u_anc|v_buf[6][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[7][14]         ; Merged with feedback_fxlms_core:u_anc|v_buf[7][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[7][15]         ; Merged with feedback_fxlms_core:u_anc|v_buf[7][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[8][14]         ; Merged with feedback_fxlms_core:u_anc|v_buf[8][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[8][15]         ; Merged with feedback_fxlms_core:u_anc|v_buf[8][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[9][14]         ; Merged with feedback_fxlms_core:u_anc|v_buf[9][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[9][15]         ; Merged with feedback_fxlms_core:u_anc|v_buf[9][13]  ;
+; feedback_fxlms_core:u_anc|v_buf[10][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[10][13] ;
+; feedback_fxlms_core:u_anc|v_buf[10][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[10][13] ;
+; feedback_fxlms_core:u_anc|v_buf[11][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[11][13] ;
+; feedback_fxlms_core:u_anc|v_buf[11][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[11][13] ;
+; feedback_fxlms_core:u_anc|v_buf[12][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[12][13] ;
+; feedback_fxlms_core:u_anc|v_buf[12][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[12][13] ;
+; feedback_fxlms_core:u_anc|v_buf[13][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[13][13] ;
+; feedback_fxlms_core:u_anc|v_buf[13][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[13][13] ;
+; feedback_fxlms_core:u_anc|v_buf[14][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[14][13] ;
+; feedback_fxlms_core:u_anc|v_buf[14][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[14][13] ;
+; feedback_fxlms_core:u_anc|v_buf[15][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[15][13] ;
+; feedback_fxlms_core:u_anc|v_buf[15][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[15][13] ;
+; feedback_fxlms_core:u_anc|v_buf[16][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[16][13] ;
+; feedback_fxlms_core:u_anc|v_buf[16][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[16][13] ;
+; feedback_fxlms_core:u_anc|v_buf[17][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[17][13] ;
+; feedback_fxlms_core:u_anc|v_buf[17][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[17][13] ;
+; feedback_fxlms_core:u_anc|v_buf[18][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[18][13] ;
+; feedback_fxlms_core:u_anc|v_buf[18][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[18][13] ;
+; feedback_fxlms_core:u_anc|v_buf[19][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[19][13] ;
+; feedback_fxlms_core:u_anc|v_buf[19][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[19][13] ;
+; feedback_fxlms_core:u_anc|v_buf[20][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[20][13] ;
+; feedback_fxlms_core:u_anc|v_buf[20][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[20][13] ;
+; feedback_fxlms_core:u_anc|v_buf[21][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[21][13] ;
+; feedback_fxlms_core:u_anc|v_buf[21][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[21][13] ;
+; feedback_fxlms_core:u_anc|v_buf[22][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[22][13] ;
+; feedback_fxlms_core:u_anc|v_buf[22][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[22][13] ;
+; feedback_fxlms_core:u_anc|v_buf[23][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[23][13] ;
+; feedback_fxlms_core:u_anc|v_buf[23][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[23][13] ;
+; feedback_fxlms_core:u_anc|v_buf[24][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[24][13] ;
+; feedback_fxlms_core:u_anc|v_buf[24][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[24][13] ;
+; feedback_fxlms_core:u_anc|v_buf[25][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[25][13] ;
+; feedback_fxlms_core:u_anc|v_buf[25][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[25][13] ;
+; feedback_fxlms_core:u_anc|v_buf[26][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[26][13] ;
+; feedback_fxlms_core:u_anc|v_buf[26][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[26][13] ;
+; feedback_fxlms_core:u_anc|v_buf[27][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[27][13] ;
+; feedback_fxlms_core:u_anc|v_buf[27][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[27][13] ;
+; feedback_fxlms_core:u_anc|v_buf[28][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[28][13] ;
+; feedback_fxlms_core:u_anc|v_buf[28][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[28][13] ;
+; feedback_fxlms_core:u_anc|v_buf[29][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[29][13] ;
+; feedback_fxlms_core:u_anc|v_buf[29][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[29][13] ;
+; feedback_fxlms_core:u_anc|v_buf[30][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[30][13] ;
+; feedback_fxlms_core:u_anc|v_buf[30][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[30][13] ;
+; feedback_fxlms_core:u_anc|v_buf[31][14]        ; Merged with feedback_fxlms_core:u_anc|v_buf[31][13] ;
+; feedback_fxlms_core:u_anc|v_buf[31][15]        ; Merged with feedback_fxlms_core:u_anc|v_buf[31][13] ;
+; feedback_fxlms_core:u_anc|calc_state~11        ; Lost fanout                                         ;
+; feedback_fxlms_core:u_anc|calc_state~12        ; Lost fanout                                         ;
+; feedback_fxlms_core:u_anc|calc_state~13        ; Lost fanout                                         ;
+; feedback_fxlms_core:u_anc|sys_state~9          ; Lost fanout                                         ;
+; feedback_fxlms_core:u_anc|sys_state~10         ; Lost fanout                                         ;
+; wm8731_i2c_config:u_i2c|state~11               ; Lost fanout                                         ;
+; wm8731_i2c_config:u_i2c|state~12               ; Lost fanout                                         ;
+; wm8731_i2c_config:u_i2c|state~13               ; Lost fanout                                         ;
+; wm8731_i2c_config:u_i2c|state~14               ; Lost fanout                                         ;
+; feedback_fxlms_core:u_anc|sys_state.STATE_IDLE ; Lost fanout                                         ;
+; xck_div[0]                                     ; Merged with wm8731_i2c_config:u_i2c|clk_div[0]      ;
+; Total Number of Removed Registers = 75         ;                                                     ;
++------------------------------------------------+-----------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 4364  ;
+; Number of registers using Synchronous Clear  ; 36    ;
+; Number of registers using Synchronous Load   ; 3     ;
+; Number of registers using Asynchronous Clear ; 4362  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 3804  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                            ;
++-----------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                             ; Fan out ;
++-----------------------------------------------------------------------------------------------+---------+
+; wm8731_i2c_config:u_i2c|i2c_sclk                                                              ; 4       ;
+; wm8731_i2c_config:u_i2c|bit_index[2]                                                          ; 4       ;
+; wm8731_i2c_config:u_i2c|bit_index[1]                                                          ; 7       ;
+; wm8731_i2c_config:u_i2c|bit_index[0]                                                          ; 8       ;
+; key1_sync[1]                                                                                  ; 22      ;
+; wm8731_i2c_config:u_i2c|sdat_out                                                              ; 5       ;
+; key1_sync[0]                                                                                  ; 1       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[30]                                                             ; 3       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[28]                                                             ; 3       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[27]                                                             ; 4       ;
+; feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0|shift_taps_b1n:auto_generated|dffe4 ; 16      ;
+; lfsr_prbs31:u_lfsr|lfsr_state[17]                                                             ; 3       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[19]                                                             ; 3       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[20]                                                             ; 3       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[22]                                                             ; 3       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[25]                                                             ; 3       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[15]                                                             ; 1       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[13]                                                             ; 1       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[10]                                                             ; 1       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[8]                                                              ; 1       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[7]                                                              ; 1       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[5]                                                              ; 1       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[2]                                                              ; 1       ;
+; lfsr_prbs31:u_lfsr|lfsr_state[0]                                                              ; 1       ;
+; Total number of inverted registers = 24                                                       ;         ;
++-----------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                  ;
++----------------------------------------------------+---------------------------------------------+------------+
+; Register Name                                      ; Megafunction                                ; Type       ;
++----------------------------------------------------+---------------------------------------------+------------+
+; feedback_fxlms_core:u_anc|x_buf[0][0..15]          ; feedback_fxlms_core:u_anc|delay_d_buf_rtl_0 ; SHIFT_TAPS ;
+; feedback_fxlms_core:u_anc|delay_d_buf[1..4][0..15] ; feedback_fxlms_core:u_anc|delay_d_buf_rtl_0 ; SHIFT_TAPS ;
++----------------------------------------------------+---------------------------------------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |de2_anc_top|i2s_transceiver:u_i2s|bit_count[2]          ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |de2_anc_top|key1_cnt[11]                                ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[31][26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[31][2]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[30][25] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[30][21]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[29][1]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[29][16]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[28][28] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[28][29]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[27][3]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[27][9]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[26][25] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[26][10]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[25][25] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[25][22]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[24][8]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[24][3]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[23][28] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[23][23]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[22][4]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[22][22]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[21][4]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[21][7]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[20][15] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[20][9]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[19][10] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[19][31]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[18][28] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[18][14]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[17][3]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[17][29]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[16][14] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[16][17]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[15][19] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[15][15]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[14][16] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[14][31]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[13][26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[13][4]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[12][11] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[12][16]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[11][0]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[11][0]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[10][14] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[10][15]     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[9][22]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[9][13]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[8][8]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[8][14]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[7][5]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[7][8]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[6][3]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[6][1]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[5][17]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[5][13]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[4][5]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[4][22]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[3][31]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[3][18]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[2][23]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[2][17]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[1][4]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[1][23]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|s_hat_ram[0][3]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|w_ram[0][11]      ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |de2_anc_top|i2s_transceiver:u_i2s|tx_shift_reg[8]       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|calib_busy        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|calib_counter[12] ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |de2_anc_top|wm8731_i2c_config:u_i2c|shift_reg[7]        ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |de2_anc_top|wm8731_i2c_config:u_i2c|shift_reg[1]        ;
+; 9:1                ; 16 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|spk_out[2]        ;
+; 10:1               ; 48 bits   ; 288 LEs       ; 144 LEs              ; 144 LEs                ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|acc[32]           ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 7 LEs                ; 35 LEs                 ; Yes        ; |de2_anc_top|feedback_fxlms_core:u_anc|tap_idx[5]        ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 3 LEs                ; 15 LEs                 ; Yes        ; |de2_anc_top|wm8731_i2c_config:u_i2c|bit_index[0]        ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |de2_anc_top|hex_decoder:u_hex|hex0[6]                   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |de2_anc_top|hex_decoder:u_hex|hex0[2]                   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |de2_anc_top|feedback_fxlms_core:u_anc|ShiftRight0       ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |de2_anc_top|feedback_fxlms_core:u_anc|tmp_sat_y         ;
+; 32:1               ; 126 bits  ; 2646 LEs      ; 2646 LEs             ; 0 LEs                  ; No         ; |de2_anc_top|feedback_fxlms_core:u_anc|Mux48             ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |de2_anc_top|wm8731_i2c_config:u_i2c|byte_count          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |de2_anc_top|feedback_fxlms_core:u_anc|Selector92        ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |de2_anc_top|feedback_fxlms_core:u_anc|Selector98        ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |de2_anc_top|feedback_fxlms_core:u_anc|Selector102       ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |de2_anc_top|wm8731_i2c_config:u_i2c|state               ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |de2_anc_top|feedback_fxlms_core:u_anc|Selector89        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0|shift_taps_b1n:auto_generated|altsyncram_eta1:altsyncram2 ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                           ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                            ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: feedback_fxlms_core:u_anc ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; M_TAPS         ; 32    ; Signed Integer                                ;
+; L_TAPS         ; 32    ; Signed Integer                                ;
+; DELTA          ; 4     ; Signed Integer                                ;
+; CALIB_SAMPLES  ; 8000  ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0 ;
++----------------+----------------+--------------------------------------------------------------------------+
+; Parameter Name ; Value          ; Type                                                                     ;
++----------------+----------------+--------------------------------------------------------------------------+
+; WIDTH_BYTEENA  ; 1              ; Untyped                                                                  ;
+; NUMBER_OF_TAPS ; 1              ; Untyped                                                                  ;
+; TAP_DISTANCE   ; 5              ; Untyped                                                                  ;
+; WIDTH          ; 16             ; Untyped                                                                  ;
+; POWER_UP_STATE ; CLEARED        ; Untyped                                                                  ;
+; CBXI_PARAMETER ; shift_taps_b1n ; Untyped                                                                  ;
++----------------+----------------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult3 ;
++------------------------------------------------+------------+-----------------------------+
+; Parameter Name                                 ; Value      ; Type                        ;
++------------------------------------------------+------------+-----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE              ;
+; LPM_WIDTHA                                     ; 32         ; Untyped                     ;
+; LPM_WIDTHB                                     ; 16         ; Untyped                     ;
+; LPM_WIDTHP                                     ; 48         ; Untyped                     ;
+; LPM_WIDTHR                                     ; 48         ; Untyped                     ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                     ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                     ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                     ;
+; LATENCY                                        ; 0          ; Untyped                     ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; USE_EAB                                        ; OFF        ; Untyped                     ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                     ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                     ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                     ;
+; CBXI_PARAMETER                                 ; mult_m1t   ; Untyped                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                     ;
++------------------------------------------------+------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult2 ;
++------------------------------------------------+------------+-----------------------------+
+; Parameter Name                                 ; Value      ; Type                        ;
++------------------------------------------------+------------+-----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE              ;
+; LPM_WIDTHA                                     ; 32         ; Untyped                     ;
+; LPM_WIDTHB                                     ; 16         ; Untyped                     ;
+; LPM_WIDTHP                                     ; 48         ; Untyped                     ;
+; LPM_WIDTHR                                     ; 48         ; Untyped                     ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                     ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                     ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                     ;
+; LATENCY                                        ; 0          ; Untyped                     ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; USE_EAB                                        ; OFF        ; Untyped                     ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                     ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                     ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                     ;
+; CBXI_PARAMETER                                 ; mult_m1t   ; Untyped                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                     ;
++------------------------------------------------+------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult0 ;
++------------------------------------------------+------------+-----------------------------+
+; Parameter Name                                 ; Value      ; Type                        ;
++------------------------------------------------+------------+-----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE              ;
+; LPM_WIDTHA                                     ; 32         ; Untyped                     ;
+; LPM_WIDTHB                                     ; 14         ; Untyped                     ;
+; LPM_WIDTHP                                     ; 46         ; Untyped                     ;
+; LPM_WIDTHR                                     ; 46         ; Untyped                     ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                     ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                     ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                     ;
+; LATENCY                                        ; 0          ; Untyped                     ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; USE_EAB                                        ; OFF        ; Untyped                     ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                     ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                     ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                     ;
+; CBXI_PARAMETER                                 ; mult_i1t   ; Untyped                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                     ;
++------------------------------------------------+------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult4 ;
++------------------------------------------------+------------+-----------------------------+
+; Parameter Name                                 ; Value      ; Type                        ;
++------------------------------------------------+------------+-----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE              ;
+; LPM_WIDTHA                                     ; 32         ; Untyped                     ;
+; LPM_WIDTHB                                     ; 16         ; Untyped                     ;
+; LPM_WIDTHP                                     ; 48         ; Untyped                     ;
+; LPM_WIDTHR                                     ; 48         ; Untyped                     ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                     ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                     ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                     ;
+; LATENCY                                        ; 0          ; Untyped                     ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; USE_EAB                                        ; OFF        ; Untyped                     ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                     ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                     ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                     ;
+; CBXI_PARAMETER                                 ; mult_m1t   ; Untyped                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                     ;
++------------------------------------------------+------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult5 ;
++------------------------------------------------+------------+-----------------------------+
+; Parameter Name                                 ; Value      ; Type                        ;
++------------------------------------------------+------------+-----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE              ;
+; LPM_WIDTHA                                     ; 16         ; Untyped                     ;
+; LPM_WIDTHB                                     ; 16         ; Untyped                     ;
+; LPM_WIDTHP                                     ; 32         ; Untyped                     ;
+; LPM_WIDTHR                                     ; 32         ; Untyped                     ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                     ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                     ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                     ;
+; LATENCY                                        ; 0          ; Untyped                     ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; USE_EAB                                        ; OFF        ; Untyped                     ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                     ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                     ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                     ;
+; CBXI_PARAMETER                                 ; mult_h1t   ; Untyped                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                     ;
++------------------------------------------------+------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: feedback_fxlms_core:u_anc|lpm_mult:Mult1 ;
++------------------------------------------------+------------+-----------------------------+
+; Parameter Name                                 ; Value      ; Type                        ;
++------------------------------------------------+------------+-----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE              ;
+; LPM_WIDTHA                                     ; 16         ; Untyped                     ;
+; LPM_WIDTHB                                     ; 14         ; Untyped                     ;
+; LPM_WIDTHP                                     ; 30         ; Untyped                     ;
+; LPM_WIDTHR                                     ; 30         ; Untyped                     ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                     ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                     ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                     ;
+; LATENCY                                        ; 0          ; Untyped                     ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                     ;
+; USE_EAB                                        ; OFF        ; Untyped                     ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                     ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                     ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                     ;
+; CBXI_PARAMETER                                 ; mult_d1t   ; Untyped                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                     ;
++------------------------------------------------+------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; altshift_taps Parameter Settings by Entity Instance                                    ;
++----------------------------+-----------------------------------------------------------+
+; Name                       ; Value                                                     ;
++----------------------------+-----------------------------------------------------------+
+; Number of entity instances ; 1                                                         ;
+; Entity Instance            ; feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0 ;
+;     -- NUMBER_OF_TAPS      ; 1                                                         ;
+;     -- TAP_DISTANCE        ; 5                                                         ;
+;     -- WIDTH               ; 16                                                        ;
++----------------------------+-----------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                   ;
++---------------------------------------+------------------------------------------+
+; Name                                  ; Value                                    ;
++---------------------------------------+------------------------------------------+
+; Number of entity instances            ; 6                                        ;
+; Entity Instance                       ; feedback_fxlms_core:u_anc|lpm_mult:Mult3 ;
+;     -- LPM_WIDTHA                     ; 32                                       ;
+;     -- LPM_WIDTHB                     ; 16                                       ;
+;     -- LPM_WIDTHP                     ; 48                                       ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                       ;
+;     -- USE_EAB                        ; OFF                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                       ;
+; Entity Instance                       ; feedback_fxlms_core:u_anc|lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 32                                       ;
+;     -- LPM_WIDTHB                     ; 16                                       ;
+;     -- LPM_WIDTHP                     ; 48                                       ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                       ;
+;     -- USE_EAB                        ; OFF                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                       ;
+; Entity Instance                       ; feedback_fxlms_core:u_anc|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                                       ;
+;     -- LPM_WIDTHB                     ; 14                                       ;
+;     -- LPM_WIDTHP                     ; 46                                       ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                       ;
+;     -- USE_EAB                        ; OFF                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                       ;
+; Entity Instance                       ; feedback_fxlms_core:u_anc|lpm_mult:Mult4 ;
+;     -- LPM_WIDTHA                     ; 32                                       ;
+;     -- LPM_WIDTHB                     ; 16                                       ;
+;     -- LPM_WIDTHP                     ; 48                                       ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                       ;
+;     -- USE_EAB                        ; OFF                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                       ;
+; Entity Instance                       ; feedback_fxlms_core:u_anc|lpm_mult:Mult5 ;
+;     -- LPM_WIDTHA                     ; 16                                       ;
+;     -- LPM_WIDTHB                     ; 16                                       ;
+;     -- LPM_WIDTHP                     ; 32                                       ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                       ;
+;     -- USE_EAB                        ; OFF                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                       ;
+; Entity Instance                       ; feedback_fxlms_core:u_anc|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 16                                       ;
+;     -- LPM_WIDTHB                     ; 14                                       ;
+;     -- LPM_WIDTHP                     ; 30                                       ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                       ;
+;     -- USE_EAB                        ; OFF                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                       ;
++---------------------------------------+------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:14     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Oct 30 11:08:45 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off de2_anc -c de2_anc
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Warning (10229): Verilog HDL Expression warning at de2_anc_top.v(184): truncated literal to match 10 bits
+Warning (10229): Verilog HDL Expression warning at de2_anc_top.v(185): truncated literal to match 10 bits
+Info (12021): Found 1 design units, including 1 entities, in source file /dsp_doan/rtl/de2_anc_top.v
+    Info (12023): Found entity 1: de2_anc_top
+Info (12021): Found 1 design units, including 1 entities, in source file /dsp_doan/rtl/feedback_fxlms_core.v
+    Info (12023): Found entity 1: feedback_fxlms_core
+Info (12021): Found 1 design units, including 1 entities, in source file /dsp_doan/rtl/i2s_transceiver.v
+    Info (12023): Found entity 1: i2s_transceiver
+Info (12021): Found 1 design units, including 1 entities, in source file /dsp_doan/rtl/wm8731_i2c_config.v
+    Info (12023): Found entity 1: wm8731_i2c_config
+Info (12021): Found 1 design units, including 1 entities, in source file /dsp_doan/rtl/lfsr_prbs31.v
+    Info (12023): Found entity 1: lfsr_prbs31
+Info (12021): Found 1 design units, including 1 entities, in source file /dsp_doan/rtl/hex_decoder.v
+    Info (12023): Found entity 1: hex_decoder
+Info (12127): Elaborating entity "de2_anc_top" for the top level hierarchy
+Info (12128): Elaborating entity "wm8731_i2c_config" for hierarchy "wm8731_i2c_config:u_i2c"
+Warning (10030): Net "reg_lut.data_a" at wm8731_i2c_config.v(43) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "reg_lut.waddr_a" at wm8731_i2c_config.v(43) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "reg_lut.we_a" at wm8731_i2c_config.v(43) has no driver or initial value, using a default initial value '0'
+Info (12128): Elaborating entity "i2s_transceiver" for hierarchy "i2s_transceiver:u_i2s"
+Warning (10036): Verilog HDL or VHDL warning at i2s_transceiver.v(43): object "lrck_edge" assigned a value but never read
+Info (12128): Elaborating entity "lfsr_prbs31" for hierarchy "lfsr_prbs31:u_lfsr"
+Info (12128): Elaborating entity "feedback_fxlms_core" for hierarchy "feedback_fxlms_core:u_anc"
+Warning (10036): Verilog HDL or VHDL warning at feedback_fxlms_core.v(98): object "cur_dhat" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at feedback_fxlms_core.v(99): object "cur_x" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at feedback_fxlms_core.v(100): object "cur_y" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at feedback_fxlms_core.v(101): object "cur_xf" assigned a value but never read
+Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:u_hex"
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "wm8731_i2c_config:u_i2c|reg_lut" is uninferred due to inappropriate RAM size
+Critical Warning (127005): Memory depth (16) in the design file differs from memory depth (11) in the Memory Initialization File "E:/dsp_doan/syn/db/de2_anc.ram0_wm8731_i2c_config_4d4489e.hdl.mif" -- setting initial value for remaining addresses to 0
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276034): Inferred altshift_taps megafunction from the following design logic: "feedback_fxlms_core:u_anc|delay_d_buf_rtl_0"
+        Info (286033): Parameter NUMBER_OF_TAPS set to 1
+        Info (286033): Parameter TAP_DISTANCE set to 5
+        Info (286033): Parameter WIDTH set to 16
+Info (278001): Inferred 6 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "feedback_fxlms_core:u_anc|Mult3"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "feedback_fxlms_core:u_anc|Mult2"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "feedback_fxlms_core:u_anc|Mult0"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "feedback_fxlms_core:u_anc|Mult4"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "feedback_fxlms_core:u_anc|Mult5"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "feedback_fxlms_core:u_anc|Mult1"
+Info (12130): Elaborated megafunction instantiation "feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0"
+Info (12133): Instantiated megafunction "feedback_fxlms_core:u_anc|altshift_taps:delay_d_buf_rtl_0" with the following parameter:
+    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
+    Info (12134): Parameter "TAP_DISTANCE" = "5"
+    Info (12134): Parameter "WIDTH" = "16"
+Info (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_b1n.tdf
+    Info (12023): Found entity 1: shift_taps_b1n
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_eta1.tdf
+    Info (12023): Found entity 1: altsyncram_eta1
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_kkf.tdf
+    Info (12023): Found entity 1: cntr_kkf
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_6cc.tdf
+    Info (12023): Found entity 1: cmpr_6cc
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_a4h.tdf
+    Info (12023): Found entity 1: cntr_a4h
+Info (12130): Elaborated megafunction instantiation "feedback_fxlms_core:u_anc|lpm_mult:Mult3"
+Info (12133): Instantiated megafunction "feedback_fxlms_core:u_anc|lpm_mult:Mult3" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "48"
+    Info (12134): Parameter "LPM_WIDTHR" = "48"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_m1t.tdf
+    Info (12023): Found entity 1: mult_m1t
+Info (12130): Elaborated megafunction instantiation "feedback_fxlms_core:u_anc|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "feedback_fxlms_core:u_anc|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "14"
+    Info (12134): Parameter "LPM_WIDTHP" = "46"
+    Info (12134): Parameter "LPM_WIDTHR" = "46"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_i1t.tdf
+    Info (12023): Found entity 1: mult_i1t
+Info (12130): Elaborated megafunction instantiation "feedback_fxlms_core:u_anc|lpm_mult:Mult5"
+Info (12133): Instantiated megafunction "feedback_fxlms_core:u_anc|lpm_mult:Mult5" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "16"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "32"
+    Info (12134): Parameter "LPM_WIDTHR" = "32"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_h1t.tdf
+    Info (12023): Found entity 1: mult_h1t
+Info (12130): Elaborated megafunction instantiation "feedback_fxlms_core:u_anc|lpm_mult:Mult1"
+Info (12133): Instantiated megafunction "feedback_fxlms_core:u_anc|lpm_mult:Mult1" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "16"
+    Info (12134): Parameter "LPM_WIDTHB" = "14"
+    Info (12134): Parameter "LPM_WIDTHP" = "30"
+    Info (12134): Parameter "LPM_WIDTHR" = "30"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_d1t.tdf
+    Info (12023): Found entity 1: mult_d1t
+Info (13014): Ignored 418 buffer(s)
+    Info (13019): Ignored 418 SOFT buffer(s)
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[10]" is stuck at GND
+    Warning (13410): Pin "LEDR[11]" is stuck at GND
+    Warning (13410): Pin "LEDR[12]" is stuck at GND
+    Warning (13410): Pin "LEDR[13]" is stuck at GND
+    Warning (13410): Pin "LEDR[14]" is stuck at GND
+    Warning (13410): Pin "LEDR[15]" is stuck at GND
+    Warning (13410): Pin "LEDR[16]" is stuck at GND
+    Warning (13410): Pin "LEDR[17]" is stuck at GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND
+    Warning (13410): Pin "LEDG[1]" is stuck at GND
+    Warning (13410): Pin "LEDG[2]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
+    Warning (13410): Pin "LEDG[8]" is stuck at GND
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC
+    Warning (13410): Pin "HEX1[2]" is stuck at GND
+    Warning (13410): Pin "HEX1[6]" is stuck at GND
+    Warning (13410): Pin "HEX2[1]" is stuck at GND
+    Warning (13410): Pin "HEX2[2]" is stuck at GND
+    Warning (13410): Pin "HEX3[4]" is stuck at GND
+    Warning (13410): Pin "HEX6[0]" is stuck at VCC
+    Warning (13410): Pin "HEX6[1]" is stuck at VCC
+    Warning (13410): Pin "HEX6[2]" is stuck at VCC
+    Warning (13410): Pin "HEX6[3]" is stuck at VCC
+    Warning (13410): Pin "HEX6[4]" is stuck at VCC
+    Warning (13410): Pin "HEX6[5]" is stuck at VCC
+    Warning (13410): Pin "HEX6[6]" is stuck at VCC
+    Warning (13410): Pin "HEX7[0]" is stuck at VCC
+    Warning (13410): Pin "HEX7[1]" is stuck at VCC
+    Warning (13410): Pin "HEX7[2]" is stuck at VCC
+    Warning (13410): Pin "HEX7[3]" is stuck at VCC
+    Warning (13410): Pin "HEX7[4]" is stuck at VCC
+    Warning (13410): Pin "HEX7[5]" is stuck at VCC
+    Warning (13410): Pin "HEX7[6]" is stuck at VCC
+Info (17049): 10 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file E:/dsp_doan/syn/de2_anc.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 18 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[2]"
+    Warning (15610): No output dependent on input pin "KEY[3]"
+    Warning (15610): No output dependent on input pin "SW[3]"
+    Warning (15610): No output dependent on input pin "SW[4]"
+    Warning (15610): No output dependent on input pin "SW[5]"
+    Warning (15610): No output dependent on input pin "SW[6]"
+    Warning (15610): No output dependent on input pin "SW[7]"
+    Warning (15610): No output dependent on input pin "SW[8]"
+    Warning (15610): No output dependent on input pin "SW[9]"
+    Warning (15610): No output dependent on input pin "SW[10]"
+    Warning (15610): No output dependent on input pin "SW[11]"
+    Warning (15610): No output dependent on input pin "SW[12]"
+    Warning (15610): No output dependent on input pin "SW[13]"
+    Warning (15610): No output dependent on input pin "SW[14]"
+    Warning (15610): No output dependent on input pin "SW[15]"
+    Warning (15610): No output dependent on input pin "SW[16]"
+    Warning (15610): No output dependent on input pin "SW[17]"
+    Warning (15610): No output dependent on input pin "AUD_DACLRCK"
+Info (21057): Implemented 8133 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 27 input pins
+    Info (21059): Implemented 86 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 7983 logic cells
+    Info (21064): Implemented 16 RAM segments
+    Info (21062): Implemented 20 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 69 warnings
+    Info: Peak virtual memory: 4654 megabytes
+    Info: Processing ended: Fri Oct 30 11:09:05 2026
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:18
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/dsp_doan/syn/de2_anc.map.smsg.
+
+

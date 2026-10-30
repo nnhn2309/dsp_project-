@@ -1,0 +1,17 @@
+Time resolution is 1 ps
+============================================================
+[TESTBENCH] MO PHONG HE THONG ANC VOI FILE AM THANH THUC TE
+============================================================
+[INFO] Da mo file am thanh dau vao 'noise_input.txt' thanh cong.
+[TESTBENCH] [1] Nhan KEY[1]: Phat nhieu trang de hoc S_hat(z)...
+[TESTBENCH] [2] Calib HOAN THANH! Mo hinh S_hat da hoi tu.
+[TESTBENCH] [3] Phat file am thanh o che do BYPASS (ANC OFF - do tieng on goc)...
+[TESTBENCH] [4] Gat SW[0] = 1: BAT ANC KHU NHIEU!
+============================================================
+[TESTBENCH KET QUA]:
+  - Bien do dinh tieng on khi Bypass (ANC OFF):       22935
+  - Bien do dinh sai so khi ANC ON (Sau hoi tu):       22252
+  - Do suy giam bien do tieng on: 2.98 %
+  - Du lieu ket qua da duoc ghi vao file: 'anc_output.txt'
+============================================================
+$stop called at time : 21000270 ns : File "E:/dsp_doan/tb/tb_feedback_fxlms_core.v" Line 252

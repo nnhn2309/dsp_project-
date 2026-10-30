@@ -1,0 +1,36 @@
+
+State Machine - |de2_anc_top|feedback_fxlms_core:u_anc|calc_state
+Name calc_state.CALC_W_UP calc_state.CALC_XF_FIR calc_state.CALC_Y_FIR calc_state.CALC_SYNTH_X calc_state.CALC_YF_FIR calc_state.CALC_SHAT_UP calc_state.CALC_YS_FIR calc_state.CALC_IDLE calc_state.CALC_DONE 
+calc_state.CALC_IDLE 0 0 0 0 0 0 0 0 0 
+calc_state.CALC_YS_FIR 0 0 0 0 0 0 1 1 0 
+calc_state.CALC_SHAT_UP 0 0 0 0 0 1 0 1 0 
+calc_state.CALC_YF_FIR 0 0 0 0 1 0 0 1 0 
+calc_state.CALC_SYNTH_X 0 0 0 1 0 0 0 1 0 
+calc_state.CALC_Y_FIR 0 0 1 0 0 0 0 1 0 
+calc_state.CALC_XF_FIR 0 1 0 0 0 0 0 1 0 
+calc_state.CALC_W_UP 1 0 0 0 0 0 0 1 0 
+calc_state.CALC_DONE 0 0 0 0 0 0 0 1 1 
+
+State Machine - |de2_anc_top|feedback_fxlms_core:u_anc|sys_state
+Name sys_state.STATE_ANC_RUN sys_state.STATE_CALIB_DONE sys_state.STATE_CALIB_RUN sys_state.STATE_IDLE sys_state.STATE_BYPASS 
+sys_state.STATE_IDLE 0 0 0 0 0 
+sys_state.STATE_CALIB_RUN 0 0 1 1 0 
+sys_state.STATE_CALIB_DONE 0 1 0 1 0 
+sys_state.STATE_ANC_RUN 1 0 0 1 0 
+sys_state.STATE_BYPASS 0 0 0 1 1 
+
+State Machine - |de2_anc_top|wm8731_i2c_config:u_i2c|byte_count
+Name byte_count.00 byte_count.10 byte_count.01 
+byte_count.00 0 0 0 
+byte_count.01 1 0 1 
+byte_count.10 1 1 0 
+
+State Machine - |de2_anc_top|wm8731_i2c_config:u_i2c|state
+Name state.ST_FINISHED state.ST_WAIT_NEXT state.ST_STOP state.ST_ACK state.ST_SEND_BYTE state.ST_START state.ST_IDLE 
+state.ST_IDLE 0 0 0 0 0 0 0 
+state.ST_START 0 0 0 0 0 1 1 
+state.ST_SEND_BYTE 0 0 0 0 1 0 1 
+state.ST_ACK 0 0 0 1 0 0 1 
+state.ST_STOP 0 0 1 0 0 0 1 
+state.ST_WAIT_NEXT 0 1 0 0 0 0 1 
+state.ST_FINISHED 1 0 0 0 0 0 1 

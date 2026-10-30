@@ -1,0 +1,7 @@
+Running: xsim.dir/tb_feedback_fxlms_core_behav/xsimk.exe -simmode gui -wdb tb_feedback_fxlms_core_behav.wdb -simrunnum 0 -socket 64934
+Design successfully loaded
+Design Loading Memory Usage: 8988 KB (Peak: 8988 KB)
+Design Loading CPU Usage: 31 ms
+Simulation completed
+Simulation Memory Usage: 17788 KB (Peak: 17788 KB)
+Simulation CPU Usage: 686 ms

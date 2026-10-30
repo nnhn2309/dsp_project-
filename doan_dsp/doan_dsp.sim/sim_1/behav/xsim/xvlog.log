@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/dsp_doan/rtl/feedback_fxlms_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module feedback_fxlms_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/dsp_doan/rtl/lfsr_prbs31.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lfsr_prbs31
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/dsp_doan/tb/tb_feedback_fxlms_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_feedback_fxlms_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/dsp_doan/doan_dsp/doan_dsp.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
